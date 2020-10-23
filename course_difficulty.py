@@ -1,5 +1,5 @@
 # have each homework assignment be ranked based on difficulty of the course and on difficulty of the assignment itself
-# list_of_courses_and_difficulty only takes into consideration the difficulty of the course, not the assingment
+# list_of_courses_and_difficulty only takes into consideration the difficulty of the course, not the assignment
 
 from array import *
 # install numpy in terminal with:
@@ -13,11 +13,19 @@ def set_courses_and_difficulties():
         return courses
     
     format_courses = get_courses()
-
-    value_d = input('\nPlease enter the difficulty of each course in the same order with spaces in between each ranking.\n' +
-    'The levels of difficulty are as following:\n' +
-    '1 = Easy and quick\n' + '2 = Easy but time-consuming\n' + '3 = Medium\n' + '4 = Hard material, quick work'
-    + f'5 = Hard, tedious, and time-consuming\n\nReminder, your courses are: {format_courses}\n')
+    
+    levelinstructions = """
+    The levels of difficulty are as following:
+    Level 1: Easy and quick
+    Level 2: Easy but time-consuming
+    Level 3: Medium
+    Level 4: Hard material, quick work
+    Level 5: Hard, tedious, and time-consuming
+    """
+    
+    print(levelinstructions)
+    
+    value_d = input("Please enter the difficulty of each course in the same order with spaces in between each ranking: ")
     
     def get_difficulties():
         difficulties = value_d.strip() 
