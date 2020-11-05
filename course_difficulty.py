@@ -12,6 +12,8 @@ from array import *
 
 
 # dictionaries mapping difficulty level to their assigned descriptions 
+# Erik: I commented this out to redefine the course difficulty and workload separately
+"""
 difficulty_levels = {
     1:'Easy and quick',
     2:'Easy but time-consuming',
@@ -19,14 +21,27 @@ difficulty_levels = {
     4:'Hard material, quick work',
     5:'Hard, tedious, and time-consuming'
 }
+"""
 
-#dictionary mapping efficency and time taken levels to their descriptions
-timetaken_levels = {
+
+# difficulty_levels2 refers to the difficulty of the course's material, not how much time it takes
+# ie, there can be a very time-consuming course that has easy material
+difficulty_levels = {
+    1:'Easy',
+    2:'Easy-Medium',
+    3:'Medium',
+    4:'Medium-Hard',
+    5:'Hard'
+}
+
+#dictionary mapping the amount of time taken on a course's workload (which includes studying, tests, etc) 
+workload_levels = {
     1:'1-1.9 hours',
     2:'1.9-2.9 hours',
     3:'2.9-3.9 hours',
     4:'3.9-4.9 hours',
-    5:'4.9-6 hours'
+    5:'4.9-5.9 hours',
+    6:'6+ hours'
 }
 
 
@@ -41,13 +56,13 @@ def set_courses_and_difficulties():
     
     format_courses = get_courses()
 
-    value_time = input("Please enter the amount of time (between 1 and 6 hours) that you spend completing work for each class every day.\n"
+    value_time = input("Please enter the amount of time (between 1 and 6 hours in whole numbers) that you spend completing work for each class every day.\n"
         "The hours are as following:\n"
         "\n".join([f'Level {level}: {timetaken_desc[level]}' for level in range(1,6)])+
         f"\n\nReminder, your courses are: {format_courses}\n"
     )
   
-
+    
 
     value_diff = input('\nPlease enter the difficulty of each course in the same order with spaces in between each ranking.\n' +
     'The levels of difficulty are as following:\n' +
@@ -109,8 +124,11 @@ if __name__ == "__main__":
 
 # A refined way to obtain the "difficulty of an assignment in a numerical form
 # The course difficulty can weigh heavier and then the assignment diffculty can be added
-def get_difficulty_index(course_difficulty, homework_difficulty):
+
+# The modified parameters of this method are difficulty_level (of the course material) and workload_level (how much time you need to spend on the course)
+def get_difficulty_index(difficulty_level, workload_level):
+
    # Through a 'joint list' implemented via a Python dictionary, `course_info`
    # make the course difficulty weighed more than the homework efficiency            
-   index = (course_difficulty * 2) + homework_difficulty
+   index = (difficulty_level * 2) + workload_level
    return index
