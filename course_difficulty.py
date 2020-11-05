@@ -12,7 +12,7 @@ from array import *
 
 
 # dictionaries mapping difficulty level to their assigned descriptions 
-# Erik: I commented this out to redefine the course difficulty and workload separately
+# commented this out to redefine the course difficulty and workload separately
 """
 difficulty_levels = {
     1:'Easy and quick',
