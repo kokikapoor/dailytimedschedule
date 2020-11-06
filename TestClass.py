@@ -2,19 +2,15 @@ import unittest
 
 class TestCourseDifficulty(unittest.TestCase):
 
- #   def test_upper(self):
- #       self.assertEqual('foo'.upper(), 'FOO')
+def test_coursesanddifficulty(self)
+    value_c = Math
+    value_diff = 5
+    value_time = 7
+    output = set_courses_and_difficulties(value_c, value_diff, value_time)
 
-#    def test_isupper(self):
-#        self.assertTrue('FOO'.isupper())
-#       self.assertFalse('Foo'.isupper())
+    self.asserEqual(output)
 
-#    def test_split(self):
-#        s = 'hello world'
- #       self.assertEqual(s.split(), ['hello', 'world'])
-        # check that s.split fails when the separator is not a string
-#        with self.assertRaises(TypeError):
-#            s.split(2)
+
 
 if __name__ == '__main__':
     unittest.main()
