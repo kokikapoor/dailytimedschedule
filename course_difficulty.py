@@ -28,11 +28,32 @@ timetaken_levels = {
     4:'3.9-4.9 hours',
     5:'4.9-6 hours'
 }
+def print_title():
+    print('''
 
+====================================================================
+     ___           _           _____                       _    
+    (  _ \       _(_ )        (_   _)_                    ( )   
+    | | ) |  _ _(_)| | _   _    | | (_) ___ ___    __    _| |
+    | | | )/ _  ) || |( ) ( )   | | | |  _   _  \/ __ \/ _  | 
+    | |_) | (_| | || || (_) |   | | | | ( ) ( ) |  ___/ (_| | 
+    (____/ \__ _)_)___)\__  |   (_) (_)_) (_) (_)\____)\__ _)  
+                      ( )_| |                                                                                
+                       \___/                                                                                 
+              ___         _               _       _    
+            (  _ \      ( )             ( )     (_ )       
+            | (_(_)  ___| |__    __    _| |_   _ | |   __  
+             \__ \ / ___)  _  \/ __ \/ _  | ) ( )| | / __ \
+            ( )_) | (___| | | |  ___/ (_| | (_) || |(  ___/
+            \____)\____)_) (_)\____)\__ _)\___/(___)\____)
+
+ ===================================================================
+    ''')
 
 def set_courses_and_difficulties():
 # user input of course names
-    value_c = input("Please enter the names of all your courses with spaces in between each course name\n")
+    print_title()
+    value_c = input((u"\u001b[38;5;105m" + "Please enter the names of all your courses with spaces in between each course name\n" + u"\u001b[0m")
 
     def get_courses():
     # sets everything to upper case and removes surrounding whitespace, makes sure there is only one space between course names
@@ -41,18 +62,18 @@ def set_courses_and_difficulties():
     
     format_courses = get_courses()
 
-    value_time = input("Please enter the amount of time (between 1 and 6 hours) that you spend completing work for each class every day.\n"
-        "The hours are as following:\n"
+    value_time = input(u"\u001b[38;5;105m" + "Please enter the amount of time (between 1 and 6 hours) that you spend completing work for each class every day.\n" +
+        "The hours are as follows:\n" +
         "\n".join([f'Level {level}: {timetaken_desc[level]}' for level in range(1,6)])+
-        f"\n\nReminder, your courses are: {format_courses}\n"
+        "\n\nReminder, your courses are:" + {format_courses} + "\n" + u"\u001b[0m")
     )
   
 
 
-    value_diff = input('\nPlease enter the difficulty of each course in the same order with spaces in between each ranking.\n' +
+    value_diff = input(u"\u001b[38;5;105m" + '\nPlease enter the difficulty of each course in the same order with spaces in between each ranking.\n' +
     'The levels of difficulty are as following:\n' +
     '\n'.join([f'Level {level}: {difficulty_desc[level]}' for level in range(1,6)])+
-    f'\n\nReminder, your courses are: {format_courses}\n')
+    "\n\nReminder, your courses are:" + {format_courses} + "\n" + "\n" + u"\u001b[0m" )
     
 
     def read_level_input(input_value):
@@ -92,13 +113,13 @@ def set_courses_and_difficulties():
 def coursecheck():
     #checks that the courses the user entered are in line with what they want 
 
-    check = input("Please check that these are the courses you're taking by responding 'yes' or 'no'\n")
+    check = input(u"\u001b[38;5;105m" + "Please check that these are the courses you're taking by responding 'yes' or 'no'\n" + u"\u001b[0m")
     if check.lower() in ['yes', 'y']:
-        print(f'\nYay! You are ready to move on.')
+        print(u"\u001b[38;5;105m"  + f'\nYay! You are ready to move on.' + u"\u001b[0m")
     elif check.lower() in ['no', 'n']:
         set_courses_and_difficulties()
     else: 
-        print(f'\nError. Please specify "yes" or "no".')
+        print(u"\u001b[38;5;105m" + f'\nError. Please specify "yes" or "no".'  u"\u001b[0m")
         coursecheck()
 
 
@@ -106,11 +127,3 @@ if __name__ == "__main__":
     set_courses_and_difficulties()
     coursecheck()
 
-
-# A refined way to obtain the "difficulty of an assignment in a numerical form
-# The course difficulty can weigh heavier and then the assignment diffculty can be added
-def get_difficulty_index(course_difficulty, homework_difficulty):
-   # Through a 'joint list' implemented via a Python dictionary, `course_info`
-   # make the course difficulty weighed more than the homework efficiency            
-   index = (course_difficulty * 2) + homework_difficulty
-   return index
