@@ -45,10 +45,10 @@ Contributor: Katherine "Katie" Wimmer
     - Add title and text color     
     - [Pull Request](https://github.com/kokikapoor/dailytimedschedule/commit/e6e2ec943837a0dfa12aea735743fcae7ef1ca13)    
 
-Date: Nov 12, 2020 
-Contributor: Amy Jiang (ajiang36)
-    - Combine three lists using zip in list comprehension 
-    - [Pull Request](https://github.com/kokikapoor/dailytimedschedule/commit/121cb67e4239024ac581dffd4271f582a7b2cf15)
+Date: Nov 12, 2020     
+Contributor: Amy Jiang (ajiang36)     
+    - Combine three lists using zip in list comprehension       
+    - [Pull Request](https://github.com/kokikapoor/dailytimedschedule/commit/121cb67e4239024ac581dffd4271f582a7b2cf15).  
 
 
   
