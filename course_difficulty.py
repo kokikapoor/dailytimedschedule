@@ -90,7 +90,6 @@ def set_courses_and_difficulties():
     '\n'.join([f'Level {level}: {difficulty_desc[level]}' for level in range(1,6)])+
     "\n\nReminder, your courses are:" + {format_courses} + "\n" + "\n" + u"\u001b[0m" )
     
-
     def read_level_input(input_value):
         input_vals = input_value.strip().split(' ') # strip whitespace from input value and split around spaces to create an array of strings
         levels = [int(x) for x in input_vals] # cast to int
@@ -105,6 +104,11 @@ def set_courses_and_difficulties():
     list_timetaken = read_level_input(value_t)
     list_difficulties = read_level_input(value_d)
 
+    # Combines three lists into one using zip in list comprehension
+    list_course_info = [{'course_name': name,
+                        'course_timetaken': timetaken,
+                        'course_difficulty': difflevel}
+                        for name, timetaken, difflevel in zip(list_courses, list_timetaken, list_difficulties)]
 
     # make a joint list
     course_info = dict()
