@@ -48,7 +48,7 @@ Contributor: Katherine "Katie" Wimmer
 Date: Nov 12, 2020     
 Contributor: Amy Jiang (ajiang36)     
     - Combine three lists using zip in list comprehension       
-    - [Pull Request](https://github.com/kokikapoor/dailytimedschedule/commit/121cb67e4239024ac581dffd4271f582a7b2cf15).  
+    - [Pull Request](https://github.com/kokikapoor/dailytimedschedule/commit/121cb67e4239024ac581dffd4271f582a7b2cf15)
 
 
   
