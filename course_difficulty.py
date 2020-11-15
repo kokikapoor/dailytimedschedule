@@ -68,27 +68,25 @@ def print_title():
 def set_courses_and_difficulties():
 # user input of course names
     print_title()
-    value_c = input((u"\u001b[38;5;105m" + "Please enter the names of all your courses with spaces in between each course name\n" + u"\u001b[0m")
+    value_c = input((u"\u001b[38;5;105m" + "Please enter the names of all your courses with spaces in between each course name\n" + u"\u001b[0m"))
 
     def get_courses():
-    # sets everything to upper case and removes surrounding whitespace, makes sure there is only one space between course names
+        # sets everything to upper case and removes surrounding whitespace, makes sure there is only one space between course names
         courses = value_c.strip().upper() 
         return courses
     
     format_courses = get_courses()
- 
-    value_time = input("Please enter the amount of time (between 1 and 6 hours in whole numbers) that you spend completing work for each class every day.\n"
-        "The hours are as following:\n"
-        "\n".join([f'Level {level}: {timetaken_desc[level]}' for level in range(1,6)])+
-        f"\n\nReminder, your courses are: {format_courses}\n"
-    )
+    print(format_courses)
+
+    print("Please enter the amount of time (between 1 and 6 hours in whole numbers) that you spend completing work for each class every day.\n"
+        "The hours are as following:\n" )
+    value_time = input("\n".join([f'Level {level}: {workload_levels[level]}' for level in range(1,6)])+
+        f"\n\nReminder, your courses are: {format_courses}\n")
   
     
-
-    value_diff = input(u"\u001b[38;5;105m" + '\nPlease enter the difficulty of each course in the same order with spaces in between each ranking.\n' +
-    'The levels of difficulty are as following:\n' +
-    '\n'.join([f'Level {level}: {difficulty_desc[level]}' for level in range(1,6)])+
-    "\n\nReminder, your courses are:" + {format_courses} + "\n" + "\n" + u"\u001b[0m" )
+    print("\u001b[38;5;105m]\nPlease enter the difficulty of each course in the same order with spaces in between each ranking.\nThe levels of difficulty are as following:\n")
+    value_diff = input("\n".join([f'Level {level}: {difficulty_levels[level]}' for level in range(1,6)])+
+        f"\n\nReminder, your courses are: {format_courses}\n")
     
     def read_level_input(input_value):
         input_vals = input_value.strip().split(' ') # strip whitespace from input value and split around spaces to create an array of strings
@@ -119,8 +117,8 @@ def set_courses_and_difficulties():
     print(course_info)
 
     # map course difficulty and time taken to a description
-    list_difficulties_desc = [difficulty_desc[diff] for diff in list_difficulties]
-    list_timetaken_desc = [timetaken_desc[timetaken] for timetaken in list_timetaken]
+    list_difficulties_desc = [difficulty_levels[diff] for diff in list_difficulties]
+    list_timetaken_desc = [workload_levels[timetaken] for timetaken in list_timetaken]
     
 
     print(f'\nYour course list:\n{list_courses}\nTheir corresponding difficulties:\n{list_difficulties_desc}\nTheir corresponding time taken:\n{list_timetaken_desc}')
