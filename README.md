@@ -20,7 +20,9 @@ The user will input:
 The program will then create a color-coordinated schedule for the day with the information the user provided with appropriate time slots for activities.  
 
 ## Features to Create:
-## Progress on Features: 
+* GUI to show color co-ordinated schedule 
+* Algorithm to discern how to create schedule based on time committments 
+* Separate Accessibility feature for Teacher 
 
 ## Recommended Help:
 1) Ideas to improve the correlation between class difficulty and time required
